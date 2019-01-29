@@ -13,7 +13,10 @@ int duration(string fraction)
 // Calculates frequency (in Hz) of a note
 int frequency(string note)
 {
-    // TODO
+    int num = atoi(strtok(note, "/"));
+    int denom = atoi(strtok(NULL, "/"));
+
+    return (8 * num) / denom;
 }
 
 // Determines whether a string represents a rest
