@@ -14,10 +14,10 @@
 // Converts a fraction formatted as X/Y to eighths
 int duration(string fraction)
 {
-  int num = atoi(strtok(note, "/"));
-  int denom = atoi(strtok(NULL, "/"));
+    int num = atoi(strtok(note, "/"));
+    int denom = atoi(strtok(NULL, "/"));
 
-  return (8 * num) / denom;
+    return (8 * num) / denom;
 }
 
 // Calculates frequency (in Hz) of a note
@@ -43,19 +43,26 @@ int frequency(string note)
     int ni = 12 * octave - A4REF;
     switch (letter)
     {
-        case 'C': break;
-        case 'D': ni += 2;
-                  break;
-        case 'E': ni += 4;
-                  break;
-        case 'F': ni += 5;
-                  break;
-        case 'G': ni += 7;
-                  break;
-        case 'A': ni += 9;
-                  break;
-        case 'B': ni += 11;
-                  break;
+        case 'C':
+            break;
+        case 'D':
+            ni += 2:
+            break;
+        case 'E':
+            ni += 4;
+            break;
+        case 'F':
+            ni += 5;
+            break;
+        case 'G':
+            ni += 7;
+            break;
+        case 'A':
+            ni += 9;
+            break;
+        case 'B':
+            ni += 11;
+            break;
     }
 
     if (modifier == '#')
