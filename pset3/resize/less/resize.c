@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     // Alter the BITMAPFILEHEADER and BITMAPINFOHEADER for the resized file
     biNew.biWidth = bi.biWidth * n;
     biNew.biHeight = bi.biHeight * n;
-    bi.biSizeImage = ((sizeof(RGBTRIPLE) * biNew.biWidth) + newPadding) * abs(biNew.biHeight);
+    biNew.biSizeImage = ((sizeof(RGBTRIPLE) * biNew.biWidth) + newPadding) * abs(biNew.biHeight);
     bfNew.bfSize = biNew.biSizeImage + sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
 
     // write outfile's BITMAPFILEHEADER
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
                 }
             }
 
-            // Write the correct number of padding pixels
+            // Write the correct number of padding valuess
             for (int m = 0; m < newPadding; m++)
             {
                 fputc(0x00, outptr);
@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
         }
 
         // Move the curser forward over this lines pixels + padding
-        fseek(inptr, bi.biWidth * sizeof(RGBTRIPLE) + newPadding, SEEK_CUR);
+        fseek(inptr, bi.biWidth * sizeof(RGBTRIPLE) + oldPadding, SEEK_CUR);
     }
 
     // Close infile
